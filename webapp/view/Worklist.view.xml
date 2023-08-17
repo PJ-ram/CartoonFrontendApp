@@ -1,0 +1,129 @@
+<mvc:View controllerName="com.tolaram.app.pp.zppcartoncreat.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:uxap="sap.uxap" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout id="objectpage" showFooter="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="objectpagetitle">
+                <uxap:expandedHeading>
+                    <Title id="headertitle" text="{i18n>worklistTitle}" level="H2" />
+                </uxap:expandedHeading>
+                <uxap:actions>
+                    <Button id="printBTN" text="Print" enabled="false" press="onPrint" />
+                    <!--<Button id="rePrintBTN" text="Re-Print" enabled="false" press="onRePrint" />-->
+                    <Button id="clearBTN" text="Clear" enabled="true" press="onClear" />
+                </uxap:actions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <f:SimpleForm id="formId" layout="ResponsiveGridLayout" editable="true" singleContainerFullSize="true" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" >
+                <Label id="resourceLblId" text="Resource Machine" textAlign="Left" width="100%" wrapping="true">               
+                </Label>
+                <Input id="resourceInpId" maxLength="8" textAlign="Left" width="100%" value="{appModel>/ResourceID}" placeholder="Enter the Resource Machine" showValueHelp="true" valueHelpRequest=".onResourceVHRequest" submit="onResourceValidatePress" liveChange="onResourceValidateChange">
+                    <layoutData>
+                        <l:GridData id="gridDataId2" span="XL8 L6 M6 S12" />
+                    </layoutData>
+                </Input>
+                <Label id="processLblId" text="Process Order" textAlign="Left" width="100%" wrapping="true">                    
+                </Label>
+                <Input id="processInpId" maxLength="12" textAlign="Left" width="100%" value="{appModel>/Processorder}" placeholder="Enter the Process Order" enabled="false" showValueHelp="true" valueHelpRequest=".onProcessIdVHRequest" submit="onProcessValidatePress">
+                    <layoutData>
+                        <l:GridData id="gridDataId4" span="XL8 L6 M6 S12" />
+                    </layoutData>
+                </Input>
+            </f:SimpleForm>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection id="section1Id" titleUppercase="false" title="Details">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="subSection2Id">
+                        <f:Form id="FormDisplay354" editable="false">
+                            <f:layout>
+                                <f:ResponsiveGridLayout id="gridId" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+                            </f:layout>
+                            <f:formContainers>
+                                <f:FormContainer id="resourcesCtr">
+                                    <f:formElements>
+                                        <f:FormElement label="Resources" id="resourcesLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/ResourceID}" id="resourcesTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Process Order" id="processOrderLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/Processorder}" id="processOrderTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Material" id="materialLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/Material}" id="materialTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Material Description" id="materialDescLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/MaterialName}" id="materialDescTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Quantity" id="quantityLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/TargetQuantity} {printModel>/Unit}" id="quantityTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Batch" id="batchLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/Batch}" id="batchTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Carton Id" id="cartonLbl">
+                                            <f:fields>
+                                                <Text text="{printModel>/CartonId}" id="cartonTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Print Date" id="printDateLbl">
+                                            <f:fields>
+                                                <Text text="{
+                                                    path:'printModel>/PrintDate',
+                                                    type:'sap.ui.model.type.DateTime',
+                                                    formatOption:{
+                                                        source:{pattern:'dd/MM/YYYY HH:mm:ss'},
+                                                        style:'medium'
+                                                    }}" id="printDateTxt" />
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer>
+                            </f:formContainers>
+                        </f:Form>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection id="section2Id" titleUppercase="false" title="Print Form">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="subSection3Id">
+                        <mvc:HTMLView viewName="com.tolaram.app.pp.zppcartoncreat.view.PrintForm" height="100%" />
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer>
+            <!--<OverflowToolbar id="otbFooter">
+                <ToolbarSpacer />
+                <Button id="footerErrorBtn" type="Reject" icon="sap-icon://add-document">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+            </OverflowToolbar>-->
+             <Toolbar
+                id="otbFooter">
+
+                <Button
+                    icon="sap-icon://alert"
+                    text="{= ${message>/}.length }"
+                    visible="{= ${message>/}.length > 0 }"
+                    type="Emphasized"
+                    press="onMessagePopoverPress" />
+
+                <ToolbarSpacer/>               
+
+            </Toolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

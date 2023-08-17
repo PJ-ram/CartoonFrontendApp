@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <Dialog id="helloDialog" endButton="onClosePrintDialog">
+        <f:Form id="printForm" editable="false">
+            <f:layout>
+                <f:ResponsiveGridLayout id="gridId" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer id="printCtr">
+                    <f:formElements>
+                        <f:FormElement id="materialDescLbl">
+                            <f:fields>
+                                <Text text="{printModel>/MaterialName} {printModel>/TargetQuantity}{printModel>/Unit} {printModel>/Material}" id="materialDescTxt" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Resources">
+                            <f:fields>
+                                <Text text="{printModel>/ResourceID}" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Process Order">
+                            <f:fields>
+                                <Text text="{printModel>/Processorder}" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement>
+                            <f:fields>
+                                <Image class="image2US" id="newQrcode2" src='' />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement>
+                            <f:fields>
+                                <Text text="{printModel>/Batch}" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement>
+                            <f:fields>
+                                <Text text="{printModel>/CartonId}" />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </Dialog>
+</core:FragmentDefinition>

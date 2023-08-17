@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:vh="sap.ui.comp.valuehelpdialog" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
+    <vh:ValueHelpDialog id="resourceSearchValueHelpDialog" title="Resource Machine Id" ok=".onResourceSearchOkPress" cancel="onResourceSearchCancelPress" afterClose="onResourceSearchAfterClose" supportRanges="false" supportMultiselect="false">
+        <vh:filterBar>
+            <fb:FilterBar id="filterBarId" advancedMode="true" search="onResourceFilterSearch" filterBarExpanded="true" showClearOnFB="true" clear=".onClearResourceFilterDialog">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem id="filterGroupItem1Id" groupName="__$INTERNAL$" name="ResourceId" label="Resource Material ID" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input name="ResourceID" />
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <!--<fb:FilterGroupItem id="filterGroupItem2Id" groupName="__$INTERNAL$" name="ResourceFilter" label="" visibleInFilterBar="true">
+                        <fb:control>
+                            <ComboBox id="resourceMacineId" name="Resource Machine" selectedKey="" showSecondaryValues="true" items="" required="true">
+                                <core:ListItem key="" text="" additionalText="" />
+                            </ComboBox>
+                        </fb:control>
+                    </fb:FilterGroupItem>-->
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+        </vh:filterBar>
+    </vh:ValueHelpDialog>
+</core:FragmentDefinition>

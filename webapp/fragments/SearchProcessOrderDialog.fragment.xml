@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:vh="sap.ui.comp.valuehelpdialog" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
+    <vh:ValueHelpDialog id="resourceSearchValueHelpDialog" title="Process Order Id" ok=".onProcessIdSearchOkPress" cancel="onProcessIdSearchCancelPress" afterClose="onProcessIdSearchAfterClose" supportRanges="false" supportMultiselect="false">
+        <vh:filterBar>
+            <fb:FilterBar id="filterBarId" advancedMode="true" search="onProcessIdFilterSearch" filterBarExpanded="true" showClearOnFB="true" clear=".onClearProcessIdFilterDialog">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem id="filterGroupItem1Id" groupName="__$INTERNAL$" name="ResourceId" label="Process Order ID" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input name="Processorder" />
+                        </fb:control>
+                    </fb:FilterGroupItem>                    
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+        </vh:filterBar>
+    </vh:ValueHelpDialog>
+</core:FragmentDefinition>
